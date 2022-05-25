@@ -8,11 +8,11 @@ The code is written in MATLAB, and tested to work in MATLAB R2018-R2020.
 The DIPImage toolbox for MATLAB is required, please see http://www.diplib.org for installation instructions.
 
 
-Software for Detecting Structural Heterogeneity in Single-Molecule Localization Microscopy Data is required for Classification, please see https://github.com/imphys/smlm_classification2d
-
+2D Mex file: mex_expdist for 2D code in Detecting Structural Heterogeneity in Single-Molecule Localization Microscopy Data is required for 2D Classification, please see https://github.com/imphys/smlm_classification2d
+3D Mex file:mex_expdist for 3D code in Software for Template-Free 3D Particle Fusion in Localization Microscopy is required for 3D classification, please see https://github.com/imphys/smlm_datafusion3d
 
 #Example Usage
-Examples of how to use the code on experimental and simulated data is shown in the MATLAB script DemoJCC.m.
+Examples of how to use the code on experimental and simulated data is shown in the MATLAB script DemoJCC.m for 2D cases and DemoJCC_3D.m for 3D cases.
 
 #Further questions
 For any other questions regarding this software, you can
