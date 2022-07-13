@@ -16,9 +16,8 @@ D = cost_norm+cost_norm';       %use costnorm to try your output
 D = max(D(:))-D; 
 D = D - diag(diag(D)); 
 
-%mds = mdscale(D,20,'Criterion','metricstress');
-
-mds = mdscale(D,dimention,'Criterion','metricstress');
+opts=   struct('TolFun',1e-3, 'TolX',1e-3);
+mds = mdscale(D,dimention,'Criterion','metricstress','Options',opts);
 
 [c] = kmeans(mds(:,1:end),numClust,'replicates',1000);
 
