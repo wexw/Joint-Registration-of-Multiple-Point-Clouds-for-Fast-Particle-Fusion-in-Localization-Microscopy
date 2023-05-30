@@ -1,5 +1,5 @@
    %...-----------------Calculate Cost Function-----------
-   disp('Start to Calculate Dissimilarity Matrix 3D');
+  
    tic
 %V2's unit is nm, V2 is the original input particles' localizations
    cost_norm_All=cell(Repeattimes,1);
@@ -27,4 +27,4 @@ disp(' Dissimilarity Matrix Calculation finished by CPU');
    %----------------Calculate Cost Function-----------
 
    time_Dissimilarity=toc;
-   disp(' Dissimilarity Matrix Calculation finished');
+ 
