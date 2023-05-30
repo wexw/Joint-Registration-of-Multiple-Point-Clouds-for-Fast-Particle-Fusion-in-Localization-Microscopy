@@ -1,6 +1,5 @@
 # Joint-Registration-of-Multiple-Point-Clouds-for-Fast-Particle-Fusion-in-Localization-Microscopy
-Matlab code for Joint Registration of Multiple Point Clouds for Fast Particle Fusion in Localization Microscopy.
-Wang, Wenxiu, et al. "Joint registration of multiple point clouds for fast particle fusion in localization microscopy." Bioinformatics 38.12 (2022): 3281-3287.
+Matlab code for "Joint registration of multiple point clouds for fast particle fusion in localization microscopy." Bioinformatics 38.12 (2022): 3281-3287.
 
 The main code is written in MATLAB and some of the compute-intensive kernels have been written in CUDA and C++.
 
