@@ -46,10 +46,10 @@ make install
 CMake locates the code's dependencies and generates a Makefile. Make compiles the mex files and necessary shared libraries. Make install copies the mex files to the right directory for use in Matlab, it does not require priviledges to run.
 For furthere information please see [here](https://github.com/imphys/smlm_datafusion3d) for the instruction.
 
-3. To use this package it is required to have Mex files (mex_expdist) ready on your device. Each package (2D,3D) reuires its own MEX files to be used in Matlab. On the command line it is needed to include the path where the compiled libraries (.so) are located in LD_LIBRARY_PATH and in Matlab the path where the compiled mex-files (.mexa64)  are located needed to be added with addpath. Please note, once you need to use other package (2D,3D) you need to reassign new Mex files to the linux path. For adding the mex files into linux path you should put your software directory to <CHD_DIR> in the codes below.
+3. To use this package it is required to have Mex files (mex_expdist) ready on your device. Each package (2D,3D) reuires its own MEX files to be used in Matlab. On the command line it is needed to include the path where the compiled libraries (.so) are located in LD_LIBRARY_PATH and in Matlab the path where the compiled mex-files (.mexa64)  are located needed to be added with addpath. Please note, once you need to use other package (2D,3D) you need to reassign new Mex files to the linux path. For adding the mex files into linux path you should put your software directory to <FPF_DIR> in the codes below.
 
 ```
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:<CHD_DIR>/2D
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:<FPF_DIR>/2dCode
 
 ```
 
