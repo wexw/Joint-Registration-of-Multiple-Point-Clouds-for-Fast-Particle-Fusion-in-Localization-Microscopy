@@ -22,7 +22,7 @@ parfor k = 1:length(ind_i)
     i = ind_i(k);
     j = ind_j(k);
     cost_values(k) = mex_expdist_cpu(TVOrigin{i}',TVOrigin{j}', SigmaSquare{1,i}, SigmaSquare{1,j});
-    norm_values(k) = cost_values(k) / (size_values(j) * size_values(i));
+%     norm_values(k) = cost_values(k) / (size_values(j) * size_values(i));
 end
 % TimeParfor=toc
 cost = full(sparse(ind_i, ind_j, cost_values, K_c, K_c));
