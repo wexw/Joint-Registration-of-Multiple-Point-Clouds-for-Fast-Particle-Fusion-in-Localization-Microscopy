@@ -29,6 +29,8 @@ Use the following commands to build the necessary libraries for this software:
 
 ```bash
 cd Joint-Registration-of-Multiple-Point-Clouds-for-Fast-Particle-Fusion-in-Localization-Microscopy/2dCode
+module load cuda/8.0
+module load matlab/2019b
 
 cmake3 .
 make
