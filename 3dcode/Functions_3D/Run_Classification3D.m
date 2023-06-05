@@ -4,10 +4,11 @@ tic
 clus_All=cell(Repeattimes,1);
 ClusterView1_All=cell(Repeattimes,1);
 clusfull_All=cell(Repeattimes,1);
+ClusterView=[];
+for J_C1=1:Repeattimes%%%%%%%%%%%%%%
 
-parfor J_C1=1:Repeattimes%%%%%%%%%%%%%%
-    TV_p=TV_All{ J_C1,1};
-    MatrixAfterAll2all_norm=  cost_norm_All{ J_C1,1};
+    % TV_p=TV_All{ J_C1,1};
+    MatrixAfterAll2all_norm= cost_norm_All{ J_C1,1};
     %  [~, MatrixAfterAll2all_norm]=Cost_2D(TV_p,Particles1,CCD_pixelsize);
     clusterfull=[];
     if cluster_mode==1
@@ -27,7 +28,7 @@ for J_C1=1:Repeattimes%%%%%%%%%%%%%%%%%%%%
         ClusterView=[0,0]
         clus=0;
     elseif size(clus,2)==1
-        ClusterView=[J_C1,1,size(clus,1)];
+        ClusterView=[J_C1,1,size(cell2mat(clus),1)];
     else
         for ic=1:1:size(clus,2)
             ClusterView(ic,:)=[J_C1,ic,size(clus{1,ic},1)];
