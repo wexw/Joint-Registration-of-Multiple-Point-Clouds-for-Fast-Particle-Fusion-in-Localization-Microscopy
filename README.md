@@ -28,8 +28,9 @@ The recommended OS to run this package is linux. For windows instalation please 
 Use the following commands to build the necessary libraries for this software:
 
 ```bash
+cd Joint-Registration-of-Multiple-Point-Clouds-for-Fast-Particle-Fusion-in-Localization-Microscopy/2dCode
 
-cmake .
+cmake3 .
 make
 make install
 ````
@@ -67,6 +68,7 @@ We reused and adapted some files from the following sources:
 
 [3] Heydarian, Hamidreza, et al. "3D particle averaging and detection of macromolecular symmetry in localization microscopy." Nature Communications 12.1 (2021): 2847.
 
+[4] Haghparast, Sobhan, et al. <S.Haghparast@tudelft.nl>  Continuous heterogeneity detection https://gitlab.tudelft.nl/imphys/ci/chd
 ## Further questions
 For any other questions regarding this software, you can
 Search issues section or open a new topic there.
