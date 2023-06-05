@@ -63,7 +63,8 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/Joint-Registration-of-Multiple-Point-Cl
 Examples of how to use the code on experimental and simulated data is shown in the MATLAB script DemoJCC.m for 2D cases.
 Before executing the script, please ensure that the 'diplib' is properly loaded by using the command:
 ```
-module load diplib
+module load dipimage
+
 
 If you have not installed 'diplib', you can modify the script to avoid its usage. Simply remove the call to dip_initialise on line 3, and replace [dip, Z] = visualizeCloud2DW(XX,pixelnum,diameter,titlename) at line 61 with an alternative visualization method for the reconstruction. The original code at line 61 is intended for density plot drawing.
 ## Acknowledgements
