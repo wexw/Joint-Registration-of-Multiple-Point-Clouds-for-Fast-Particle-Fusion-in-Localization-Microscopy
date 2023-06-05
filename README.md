@@ -37,6 +37,8 @@ make
 make install
 ````
 
+Please ensure the correct installation of the CUB library. If CMake cannot locate the CUB library, you should manually add the location of the CUB library in your CMakeLists.txt file, like so:
+include_directories(../../cub-1.8.0)
 
 If you do not have a CUDA capable GPU you could install the software without GPU acceleration. Do note that the code will be orders of magnitude slower. Use the following commands to install the CPU-only version:
 ```bash
@@ -56,9 +58,14 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/Joint-Registration-of-Multiple-Point-Cl
 
 
 4. Start MATLAB and run demo codes.
-## Example Usage
-Examples of how to use the code on experimental and simulated data is shown in the MATLAB script DemoJCC.m for 2D cases and DemoJCC_3D.m for 3D cases.
 
+## Example Usage
+Examples of how to use the code on experimental and simulated data is shown in the MATLAB script DemoJCC.m for 2D cases.
+Before executing the script, please ensure that the 'diplib' is properly loaded by using the command:
+```
+module load diplib
+
+If you have not installed 'diplib', you can modify the script to avoid its usage. Simply remove the call to dip_initialise on line 3, and replace [dip, Z] = visualizeCloud2DW(XX,pixelnum,diameter,titlename) at line 61 with an alternative visualization method for the reconstruction. The original code at line 61 is intended for density plot drawing.
 ## Acknowledgements
 
 We reused and adapted some files from the following sources:
