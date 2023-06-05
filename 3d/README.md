@@ -21,8 +21,9 @@
 The Git repository uses submodules. Include them in a _git clone_ action using the _--recursive_ option.
 ```bash
 
-git clone --single-branch --branch develop git clone https://github.com/wexw/Joint-Registration-of-Multiple-Point-Clouds-for-Fast-Particle-Fusion-in-Localization-Microscopy.git
-cd 3d/
+git clone https://github.com/wexw/Joint-Registration-of-Multiple-Point-Clouds-for-Fast-Particle-Fusion-in-Localization-Microscopy.git
+cd Joint-Registration-of-Multiple-Point-Clouds-for-Fast-Particle-Fusion-in-Localization-Microscopy/3d
+
 ````
 ### Compile the code
 In the following
