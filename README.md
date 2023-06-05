@@ -33,7 +33,7 @@ The recommended OS to run this package is linux. For windows instalation please 
 Use the following commands to build the necessary libraries for this software:
 
 ```bash
-cd Joint-Registration-of-Multiple-Point-Clouds-for-Fast-Particle-Fusion-in-Localization-Microscopy/2dCode
+cd Joint-Registration-of-Multiple-Point-Clouds-for-Fast-Particle-Fusion-in-Localization-Microscopy/2d
 module load cuda/8.0
 module load matlab
 
