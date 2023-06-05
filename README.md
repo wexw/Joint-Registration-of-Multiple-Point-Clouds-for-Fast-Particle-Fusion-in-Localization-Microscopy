@@ -11,6 +11,8 @@ The main code is written in MATLAB and some of the compute-intensive kernels hav
 * [GCC](https://gcc.gnu.org/) (version>5.5.0)
 * [CUB](https://nvlabs.github.io/cub/) (version>1.8.0)
 * [Cmake](https://cmake.org/) (version>3.14.3)
+
+
 Running the demo script in Matlab requires the installation of the following toolboxes in Matlab:
 * Image processing toolbox
 
