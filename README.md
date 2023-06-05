@@ -38,8 +38,9 @@ make install
 ````
 
 Please ensure the correct installation of the CUB library. If CMake cannot locate the CUB library, you should manually add the location of the CUB library in your CMakeLists.txt file, like so:
+````bash
 include_directories(../../cub-1.8.0)
-
+````
 If you do not have a CUDA capable GPU you could install the software without GPU acceleration. Do note that the code will be orders of magnitude slower. Use the following commands to install the CPU-only version:
 ```bash
 
@@ -53,20 +54,28 @@ For furthere information please see [here](https://github.com/imphys/smlm_datafu
 
 3. To use this package it is required to have Mex files (mex_expdist) ready on your device. Each package (2D,3D) reuires its own MEX files to be used in Matlab. On the command line it is needed to include the path where the compiled libraries (.so) are located in LD_LIBRARY_PATH and in Matlab the path where the compiled mex-files (.mexa64)  are located needed to be added with addpath. Please note, once you need to use other package (2D,3D) you need to reassign new Mex files to the linux path. For adding the mex files into linux path you should put your software directory to Joint-Registration-of-Multiple-Point-Clouds-for-Fast-Particle-Fusion-in-Localization-Microscopy> in the codes below.
 
-```
+```bash
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/Joint-Registration-of-Multiple-Point-Clouds-for-Fast-Particle-Fusion-in-Localization-Microscopy/2dCode
-
+````
 
 4. Start MATLAB and run demo codes.
 
 ## Example Usage
 Examples of how to use the code on experimental and simulated data is shown in the MATLAB script DemoJCC.m for 2D cases.
 Before executing the script, please ensure that the 'diplib' is properly loaded by using the command:
-```
+```bash
 module load dipimage
+````
 
-
-If you have not installed 'diplib', you can modify the script to avoid its usage. Simply remove the call to dip_initialise on line 3, and replace [dip, Z] = visualizeCloud2DW(XX,pixelnum,diameter,titlename) at line 61 with an alternative visualization method for the reconstruction. The original code at line 61 is intended for density plot drawing.
+If you have not installed 'diplib', you can modify the script to avoid its usage. Simply remove the call to 
+```bash
+dip_initialise
+```
+on line 3, and replace 
+```bash
+[dip, Z] = visualizeCloud2DW(XX,pixelnum,diameter,titlename) 
+```
+at line 61 with an alternative visualization method for the reconstruction. The original code at line 61 is intended for density plot drawing.
 ## Acknowledgements
 
 We reused and adapted some files from the following sources:
