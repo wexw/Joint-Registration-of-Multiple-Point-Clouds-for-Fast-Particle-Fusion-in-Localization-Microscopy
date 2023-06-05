@@ -12,9 +12,9 @@ The main code is written in MATLAB and some of the compute-intensive kernels hav
 * [CUB](https://nvlabs.github.io/cub/) (version>1.8.0)
 * [Cmake](https://cmake.org/) (version>3.14.3)
 Running the demo script in Matlab requires the installation of the following toolboxes in Matlab:
-*Image processing toolbox
+* Image processing toolbox
 
-Image processing toolbox
+
 ## Operating system
 
 The recommended OS to run this package is linux. For windows instalation please see the documentation to install requirements on this [link](https://github.com/imphys/smlm_datafusion3d).
