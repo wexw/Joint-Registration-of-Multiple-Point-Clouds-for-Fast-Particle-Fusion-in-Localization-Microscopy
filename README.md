@@ -103,7 +103,7 @@ make
 ### Use the code
 Next, we need to locate the built libraries for MATLAB:
 ```bash
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:Joint-Registration-of-Multiple-Point-Clouds-for-Fast-Particle-Fusion-in-Localization-Microscopy/3d/build/mex
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:Joint-Registration-of-Multiple-Point-Clouds-for-Fast-Particle-Fusion-in-Localization-Microscopy/3d/build/mex/
 
 ``` 
 Then, run MATLAB and set USE_GPU parameters to 0 or 1 whether you plan to use GPU or not and run the demo script.
