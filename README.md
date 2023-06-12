@@ -81,6 +81,39 @@ on line 3, and replace
 [dip, Z] = visualizeCloud2DW(XX,pixelnum,diameter,titlename) 
 ```
 at line 61 with an alternative visualization method for the reconstruction. The original code at line 61 is intended for density plot drawing.
+
+## Installation of 3D version
+
+### Compile the code
+In the following
+
+- SOURCE_DIRECTORY is the root directory of the sources
+- CUB_DIRECTORY is the root directory of the downloaded [CUB library](https://nvlabs.github.io/cub/) sources
+
+
+Use the following commands to build the necessary libraries for this software:
+
+```bash
+cd SOURCE_DIRECTORY/3d
+mkdir build
+cd build
+cmake -DCUB_ROOT_DIR=CUB_DIRECTORY SOURCE_DIRECTORY/3d
+make
+````
+### Use the code
+Next, we need to locate the built libraries for MATLAB:
+```bash
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:Joint-Registration-of-Multiple-Point-Clouds-for-Fast-Particle-Fusion-in-Localization-Microscopy/3D/build/mex
+
+``` 
+Then, run MATLAB and set USE_GPU parameters to 0 or 1 whether you plan to use GPU or not and run the demo script.
+
+
+## Examples
+Examples of how to use the code on experimental and simulated data is shown in the MATLAB script Demo_JCC_3D.m for the 3D case.
+
+
+
 ## Acknowledgements
 
 We reused and adapted some files from the following sources:
