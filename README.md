@@ -66,21 +66,7 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/Joint-Registration-of-Multiple-Point-Cl
 4. Start MATLAB and run demo codes.
 
 ### Example Usage
-Examples of how to use the code on experimental and simulated data is shown in the MATLAB script DemoJCC.m for 2D cases.
-Before executing the script, please ensure that the 'diplib' is properly loaded by using the command:
-```bash
-module load dipimage
-````
-
-If you have not installed 'diplib', you can modify the script to avoid its usage. Simply remove the call to 
-```bash
-dip_initialise
-```
-on line 3, and replace 
-```bash
-[dip, Z] = visualizeCloud2DW(XX,pixelnum,diameter,titlename) 
-```
-at line 61 with an alternative visualization method for the reconstruction. The original code at line 61 is intended for density plot drawing.
+Examples of how to use the code on experimental data is shown in the MATLAB script DemoJCC.m for the 2D case.
 
 ## Installation of 3D version
 
@@ -109,22 +95,23 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:Joint-Registration-of-Multiple-Point-Clo
 Then, run MATLAB and set USE_GPU parameters to 0 or 1 whether you plan to use GPU or not and run the demo script.
 
 
-### Examples
-Examples of how to use the code on experimental and simulated data is shown in the MATLAB script Demo_JCC_3D.m for the 3D case.
-
-
+### Example Usage
+Examples of how to use the code on simulated data is shown in the MATLAB script Demo_JCC_3D.m for the 3D case.
 
 ## Acknowledgements
+Thanks to Ronald Ligteringen for his help in testing and compiling the code.
+Thanks to Sobhan Haghparast for his efforts in improving the mex files.
 
 We reused and adapted some files from the following sources:
 
-[1] Huijben, Teun APM, et al. "Detecting structural heterogeneity in single-molecule localization microscopy data." Nature communications 12.1 (2021): 3791.
+[1] Haghparast, Sobhan, et al. <S.Haghparast@tudelft.nl>  Continuous heterogeneity detection https://gitlab.tudelft.nl/imphys/ci/chd
 
 [2] Heydarian, Hamidreza, et al. "Template-free 2D particle fusion in localization microscopy." Nature methods 15.10 (2018): 781-784.
 
 [3] Heydarian, Hamidreza, et al. "3D particle averaging and detection of macromolecular symmetry in localization microscopy." Nature Communications 12.1 (2021): 2847.
 
-[4] Haghparast, Sobhan, et al. <S.Haghparast@tudelft.nl>  Continuous heterogeneity detection https://gitlab.tudelft.nl/imphys/ci/chd
+[4] Huijben, Teun APM, et al. "Detecting structural heterogeneity in single-molecule localization microscopy data." Nature communications 12.1 (2021): 3791.
+
 ## Further questions
 For any other questions regarding this software, you can
 Search issues section or open a new topic there.
