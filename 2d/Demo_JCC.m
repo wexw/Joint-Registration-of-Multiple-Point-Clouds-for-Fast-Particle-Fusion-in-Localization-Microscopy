@@ -1,10 +1,8 @@
 clc
 clear
-dip_initialise % Initialize Diplib
-%%Load data
 
 
-path_function=genpath('Functions/')
+path_function=genpath('Functions/');
 addpath(path_function)
 
 USE_GPU_GAUSSTRANSFORM = 1;
@@ -23,18 +21,19 @@ M=ParticleNumber;
 %mean locs: average number of localizations in the particles
 
 
-
 %Step1: Joint registration
 Run_JRMPC  %We can change Xin and JRMPC parameters inside
 
 %Step2: Dissimilarity Matrix Calculation
 Run_DissimilarityMatrixCalculation %no need to change anything inside
 
-
 %Two parameters defined for the classification
 nc=2; %number of clusters
 cluster_mode=2; %2: MDS clustering, 1: Hierarchical agglomerative clustering approach as alternative to MDS
-minClustSize=M/(nc+1);  %The minumum number of  the particle 
+minClustSize=M/(nc+1);fig=renderprojection2D(XX(:,1),XX(:,2), [-80 80],[-80 80],1,1, 1);
+axis off
+axis equal  %The minumum number of  the particle 
+
 %Step3: Classification
 Run_Classification %We can set different nc,minClustSize before Run_Classification
 
@@ -48,14 +47,10 @@ time_All=time_JRMPC+time_Dissimilarity+time_Connection+time_Classification; % To
 %%Used to calculate FRC resolution See https://github.com/imphys/FRC_resolution
 %Run_MainClusterFRC
 
-%Draw the density Plot
+%Draw the Plot
 XX=[];
-pixelnum=300;%number of pixels in the density plot
-diameter=100;%[nm]
-XX=cell2mat(TVPick')';%final localizations
-nef=size(TVPick,1);%number of particles in the final reconstruction
-lo=size(XX,1);%number of localizationss in the final reconstruction
-%Diplib needed
-titlename= ['N=' num2str(nef) 'time=' num2str(time_All) ];
 
-[dip, Z] = visualizeCloud2DW(XX,pixelnum,diameter,titlename);%Draw the density plot
+XX=cell2mat(TVPick')';%final localizations
+fig=renderprojection2D(XX(:,1),XX(:,2), [-80 80],[-80 80],1,1, 1);
+axis off
+axis equal
