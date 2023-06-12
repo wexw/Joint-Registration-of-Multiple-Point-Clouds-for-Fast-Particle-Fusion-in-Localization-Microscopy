@@ -14,7 +14,8 @@ The main code is written in MATLAB and some of the compute-intensive kernels hav
 
 
 Running the demo script in Matlab requires the installation of the following toolboxes in Matlab:
-* Image processing toolbox
+* Image Processing Toolbox
+* Parallel Computing Toolbox
 
 
 ## Operating system
