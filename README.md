@@ -65,7 +65,7 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/Joint-Registration-of-Multiple-Point-Cl
 
 4. Start MATLAB and run demo codes.
 
-## Example Usage
+### Example Usage
 Examples of how to use the code on experimental and simulated data is shown in the MATLAB script DemoJCC.m for 2D cases.
 Before executing the script, please ensure that the 'diplib' is properly loaded by using the command:
 ```bash
@@ -109,7 +109,7 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:Joint-Registration-of-Multiple-Point-Clo
 Then, run MATLAB and set USE_GPU parameters to 0 or 1 whether you plan to use GPU or not and run the demo script.
 
 
-## Examples
+### Examples
 Examples of how to use the code on experimental and simulated data is shown in the MATLAB script Demo_JCC_3D.m for the 3D case.
 
 
