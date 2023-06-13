@@ -30,9 +30,7 @@ Run_DissimilarityMatrixCalculation %no need to change anything inside
 %Two parameters defined for the classification
 nc=2; %number of clusters
 cluster_mode=2; %2: MDS clustering, 1: Hierarchical agglomerative clustering approach as alternative to MDS
-minClustSize=M/(nc+1);fig=renderprojection2D(XX(:,1),XX(:,2), [-80 80],[-80 80],1,1, 1);
-axis off
-axis equal  %The minumum number of  the particle 
+minClustSize=M/(nc+1);%The minumum number of  the particle 
 
 %Step3: Classification
 Run_Classification %We can set different nc,minClustSize before Run_Classification
