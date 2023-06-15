@@ -4,12 +4,10 @@ clear
 %close all
 
 path_mex_matlab1 = genpath('build/mex/');
-path_mex_matlab2 = genpath('build/mex/');
 path_matlab = genpath('MATLAB');
 path_function=genpath('Functions_3D');
 
 addpath(path_mex_matlab1)
-addpath(path_mex_matlab2)
 addpath(path_matlab)
 addpath(path_function)
 
