@@ -18,8 +18,11 @@
 #include <stdint.h>
 #include <cuda_runtime.h>
 #include <math.h>
-
 #include "expdist.h"
+
+
+#include <iostream>
+#include <stdexcept>
 
 //tuned for Nvidia K40
 #ifndef block_size_x //if not using kernel tuner
@@ -37,6 +40,34 @@
 
 //#include "kernels.cuh"
 #include "kernels.cu"
+
+// Function to select a suitable device
+int selectDevice(int requiredMemory) {
+    // Get the number of available CUDA devices
+    int deviceCount;
+    cudaGetDeviceCount(&deviceCount);
+
+    if (deviceCount == 0) {
+        throw std::runtime_error("No CUDA devices found.");
+    }
+
+    for (int i = 0; i < deviceCount; ++i) {
+        // Get the properties of the current CUDA device
+        cudaDeviceProp deviceProp;
+        cudaGetDeviceProperties(&deviceProp, i);
+
+        // Check if the device has enough memory for your dataset
+        if (deviceProp.totalGlobalMem >= requiredMemory) {
+            std::cout << "Device " << i << " is available and has enough memory for the dataset." << std::endl;
+            cudaSetDevice(i);
+            return i;
+        } else {
+            std::cout << "Device " << i << " does not have enough memory for the dataset." << std::endl;
+        }
+    }
+
+    throw std::runtime_error("No device has enough memory for the dataset.");
+}
 
 GPUExpDist::GPUExpDist(int n, int argdim) {
     //allocate GPU memory for size max_n
@@ -58,7 +89,17 @@ GPUExpDist::GPUExpDist(int n, int argdim) {
         scale_A_dim = 2;
         scale_B_dim = 9;
     }
+size_t requiredMemory = 2 * elems * sizeof(double) 
+                        + scale_A_dim * max_n * sizeof(double)
+                        + scale_B_dim * max_n * sizeof(double)
+                        + INTERMEDIATE_BUFFER_MULTIPLE * max_n * sizeof(double);
+if (dim == 3) {
+    requiredMemory += scale_A_dim * max_n * sizeof(double);
+}
 
+  int deviceID = selectDevice(requiredMemory);
+ 
+  
     cudaError_t err;
 
     err = cudaMalloc((void **)&d_A, elems*sizeof(double));
