@@ -3,9 +3,10 @@
  */
 
 #include <stdint.h>
+#include <iostream>
 #include <cuda_runtime.h>
 #include <math.h>
-
+#include <stdexcept>
 #include "expdist.h"
 
 //tuned for Nvidia K40
@@ -22,13 +23,45 @@
 
 #include "kernels.cu"
 
+// Function to select a suitable device
+int selectDevice(int requiredMemory) {
+    // Get the number of available CUDA devices
+    int deviceCount;
+    cudaGetDeviceCount(&deviceCount);
+
+    if (deviceCount == 0) {
+        throw std::runtime_error("No CUDA devices found.");
+    }
+
+    for (int i = 0; i < deviceCount; ++i) {
+        // Get the properties of the current CUDA device
+        cudaDeviceProp deviceProp;
+        cudaGetDeviceProperties(&deviceProp, i);
+
+        // Check if the device has enough memory for your dataset
+        if (deviceProp.totalGlobalMem >= requiredMemory) {
+            std::cout << "Device " << i << " is available and has enough memory for the dataset." << std::endl;
+            cudaSetDevice(i);
+            return i;
+        } else {
+            std::cout << "Device " << i << " does not have enough memory for the dataset." << std::endl;
+        }
+    }
+
+    throw std::runtime_error("No device has enough memory for the dataset.");
+}
+
+
+
 
 GPUExpDist::GPUExpDist(int n) {
     //allocate GPU memory for size max_n
     max_n = n;
     dim = 2;
     int elems = max_n * dim;
-
+ size_t requiredMemory = 2 * elems * sizeof(double) + 3 * max_n * sizeof(double);
+    int deviceID = selectDevice(requiredMemory);
+ 
     cudaError_t err;
 
     err = cudaMalloc((void **)&d_A, elems*sizeof(double));
