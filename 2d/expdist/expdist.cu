@@ -40,12 +40,14 @@ int selectDevice(int requiredMemory) {
 
         // Check if the device has enough memory for your dataset
         if (deviceProp.totalGlobalMem >= requiredMemory) {
-            std::cout << "Device " << i << " is available and has enough memory for the dataset." << std::endl;
+         //   std::cout << "Device " << i << " is available and has enough memory for the dataset." << std::endl;
             cudaSetDevice(i);
             return i;
-        } else {
-            std::cout << "Device " << i << " does not have enough memory for the dataset." << std::endl;
         }
+
+ //else {
+            //std::cout << "Device " << i << " does not have enough memory for the dataset." << std::endl;
+        //}
     }
 
     throw std::runtime_error("No device has enough memory for the dataset.");
