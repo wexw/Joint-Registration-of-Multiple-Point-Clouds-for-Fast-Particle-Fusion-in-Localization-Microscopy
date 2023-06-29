@@ -16,11 +16,13 @@ The main code is written in MATLAB and some of the compute-intensive kernels hav
 Running the demo script in Matlab requires the installation of the following toolboxes in Matlab:
 * Image Processing Toolbox
 * Parallel Computing Toolbox
+*	Statistics and Machine Learning Toolbox
+* Matlab Compiler
 
 
 ## Operating system
 
-The recommended OS to run this package is linux. For windows instalation please see the documentation to install requirements on this [link](https://github.com/imphys/smlm_datafusion3d).
+The recommended OS to run this package is Linux. For windows instalation please see the documentation to install requirements on this [link](https://github.com/imphys/smlm_datafusion3d).
 
 ## Installation of 2D version
 
@@ -35,8 +37,6 @@ Use the following commands to build the necessary libraries for this software:
 
 ```bash
 cd Joint-Registration-of-Multiple-Point-Clouds-for-Fast-Particle-Fusion-in-Localization-Microscopy/2d
-module load cuda/8.0
-module load matlab
 
 cmake3 .
 make
@@ -102,12 +102,14 @@ Examples of how to use the code on simulated data is shown in the MATLAB script 
 ## Acknowledgements
 Thanks to Ronald Ligteringen for his help in testing and compiling the code.
 Thanks to Sobhan Haghparast for his efforts in improving the mex files.
+Thanks to Isabel Droste for her careful testing and valuable suggestions for improving the code.
+
 
 We reused and adapted some files from the following sources:
 
 [1] Haghparast, Sobhan, et al. <S.Haghparast@tudelft.nl>  Continuous heterogeneity detection https://gitlab.tudelft.nl/imphys/ci/chd
 
-[2] Heydarian, Hamidreza, et al. "Template-free 2D particle fusion in localization microscopy." Nature methods 15.10 (2018): 781-784.
+[2] Heydarian, Hamidreza, etThanks to Isabel Droste for her careful testing and valuable suggestions for improving the code. al. "Template-free 2D particle fusion in localization microscopy." Nature methods 15.10 (2018): 781-784.
 
 [3] Heydarian, Hamidreza, et al. "3D particle averaging and detection of macromolecular symmetry in localization microscopy." Nature Communications 12.1 (2021): 2847.
 
