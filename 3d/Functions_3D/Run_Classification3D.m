@@ -25,7 +25,7 @@ for J_C1=1:Repeattimes%%%%%%%%%%%%%%%%%%%%
     clus= clus_All{ J_C1,1};
 
     if size(clus,2)==0
-        ClusterView=[0,0]
+        ClusterView=[0,0];
         clus=0;
     elseif size(clus,2)==1
         ClusterView=[J_C1,1,size(cell2mat(clus),1)];
@@ -36,7 +36,6 @@ for J_C1=1:Repeattimes%%%%%%%%%%%%%%%%%%%%
     end
     ClusterView1_All{ J_C1,1}=ClusterView;
 end
-
 
 disp('Classification finished');
 time_Classification=toc;
