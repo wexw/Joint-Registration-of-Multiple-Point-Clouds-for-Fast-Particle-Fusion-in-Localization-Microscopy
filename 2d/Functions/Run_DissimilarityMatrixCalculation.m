@@ -22,7 +22,7 @@ else
 
     tic
     if isempty(gcp('nocreate'))
-        parpool('local',40);
+        parpool('local',Core_number);
     end
     disp('Start to calculate Dissimilarity Matrix by CPU');
 
@@ -31,12 +31,10 @@ else
         % Calculate the cost matrix
         [~,  cost_norm_All{ J_C1,1}]=Cost_2D_cpu(TV_p,Particles1,CCD_pixelsize);
     end
-
     poolobj = gcp('nocreate'); % If no pool, do not create new one.
     if ~isempty(poolobj)
         delete(poolobj);
     end
-
     time_Dissimilarity=toc
     disp(' Dissimilarity Matrix Calculation finished by CPU');
 end
