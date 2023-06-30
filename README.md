@@ -58,7 +58,15 @@ make install
 CMake locates the code's dependencies and generates a Makefile. Make compiles the mex files and necessary shared libraries. Make install copies the mex files to the right directory for use in Matlab, it does not require priviledges to run.
 For furthere information please see [here](https://github.com/imphys/smlm_datafusion3d) for the instruction.
 
-3. To use this package it is required to have Mex files (mex_expdist) ready on your device. Each package (2D,3D) reuires its own MEX files to be used in Matlab. On the command line it is needed to include the path where the compiled libraries (.so) are located in LD_LIBRARY_PATH and in Matlab the path where the compiled mex-files (.mexa64)  are located needed to be added with addpath. Please note, once you need to use other package (2D,3D) you need to reassign new Mex files to the linux path. For adding the mex files into linux path you should put your software directory to Joint-Registration-of-Multiple-Point-Clouds-for-Fast-Particle-Fusion-in-Localization-Microscopy> in the codes below.
+4.  To use this package it is required to have Mex files (`mex_expdist`) ready on your device. These are automatically generated after compilation of the c files. Each package (2D,3D) requires its own MEX files to be used in Matlab. It is needed to include the <compiled libraries (`.so`) path> in `LD_LIBRARY_PATH`. Afterwards you should add the <location of compiled mex-files (`.mexa64`)> to Matlab path. This can be done using `addpath` command in Matlab. Please note, once you need to use other package (2D,3D) you need to reassign new Mex files to the linux path. For adding the mex files into linux path you should put your software directory to `<Joint-Registration-of-Multiple-Point-Clouds-for-Fast-Particle-Fusion-in-Localization-Microscopy>` in the codes below.
+
+   ```bash
+   export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:<Joint-Registration-of-Multiple-Point-Clouds-for-Fast-Particle-Fusion-in-Localization-Microscopy>/2d
+   ```
+
+5. Start MATLAB and set `USE_GPU_GAUSSTRANSFORM=0' and `USE_GPU_EXPDIST=0' to determine if you want to use the CPU or set `USE_GPU_GAUSSTRANSFORM=1' and `USE_GPU_EXPDIST=1' to use the GPU.
+
+To use this package it is required to have Mex files (mex_expdist) ready on your device. Each package (2D,3D) reuires its own MEX files to be used in Matlab. On the command line it is needed to include the path where the compiled libraries (.so) are located in LD_LIBRARY_PATH and in Matlab the path where the compiled mex-files (.mexa64)  are located needed to be added with addpath. Please note, once you need to use other package (2D,3D) you need to reassign new Mex files to the linux path. For adding the mex files into linux path you should put your software directory to Joint-Registration-of-Multiple-Point-Clouds-for-Fast-Particle-Fusion-in-Localization-Microscopy> in the codes below.
 
 ```bash
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/Joint-Registration-of-Multiple-Point-Clouds-for-Fast-Particle-Fusion-in-Localization-Microscopy/2d
@@ -74,30 +82,41 @@ Examples of how to use the code on experimental data is shown in the MATLAB scri
 ### Compile the code
 In the following
 
-- SOURCE_DIRECTORY is the root directory of the sources
-- CUB_DIRECTORY is the root directory of the downloaded [CUB library](https://nvlabs.github.io/cub/) sources
+- <SOURCE_DIRECTORY> is the root directory of the sources
+- <CUB_DIRECTORY> is the root directory of the downloaded [CUB library](https://nvlabs.github.io/cub/) sources
 
 
 Use the following commands to build the necessary libraries for this software:
 
 ```bash
-cd SOURCE_DIRECTORY/3d
+cd <SOURCE_DIRECTORY>/3d
 mkdir build
 cd build
-cmake -DCUB_ROOT_DIR=CUB_DIRECTORY SOURCE_DIRECTORY/3d
+cmake -DCUB_ROOT_DIR=CUB_DIRECTORY <SOURCE_DIRECTORY>/3d
 make
 ````
 ### Use the code
 Next, we need to locate the built libraries for MATLAB:
 ```bash
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:Joint-Registration-of-Multiple-Point-Clouds-for-Fast-Particle-Fusion-in-Localization-Microscopy/3d/build/mex/
-
 ``` 
-Then, run MATLAB and set USE_GPU parameters to 0 or 1 whether you plan to use GPU or not and run the demo script.
-
+Then, run MATLAB and set `USE_GPU_GAUSSTRANSFORM=0' and `USE_GPU_EXPDIST=0' to determine if you want to use the CPU or set `USE_GPU_GAUSSTRANSFORM=1' and `USE_GPU_EXPDIST=1' to use the GPU. 
 
 ### Example Usage
 Examples of how to use the code on simulated data is shown in the MATLAB script Demo_JCC_3D.m for the 3D case.
+
+## Troubleshooting
+
+1. After runing cmake. getting error message that Matlab was not found. This is because in the installation of Matlab, it is necessary to create symbolic links to MATLAB scripts. This can be done by checking the box ‘Create symbolic links to MATLAB scripts in:’ during installation. Or after installation, it can be done with the command:
+```bash 
+sudo ln -s $MATLAB/bin/matlab /usr/local/bin/matlab 
+``` 
+where $MATLAB is the location where matlab is installed.
+
+2. The LD_LIBRARY_PATH is only set inside the current terminal. There fore it is recommended to open matlab in the same terminal other wise .so files are not found.
+Another solution is to change the settings from my PC to not reset the LD_LIBRARY_PATH.
+
+
 
 ## Acknowledgements
 Thanks to Ronald Ligteringen for his help in testing and compiling the code.
