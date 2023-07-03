@@ -15,5 +15,3 @@ maxLo=10000;%maximumlocalization in one particle
 [~,V1,meanlocs,~,~] = ProcessedExperimentalDataPraticle(Particles,1,N,minLo,maxLo);
 [Particles1,V2,~,~,~] = ProcessedExperimentalDataPraticle(Particles,Cscale,N,minLo,maxLo);
 
-M=size(V1,1);
-raster_spacing=40;       % expected resolution [nm]
