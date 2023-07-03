@@ -58,7 +58,7 @@ make install
 CMake locates the code's dependencies and generates a Makefile. Make compiles the mex files and necessary shared libraries. Make install copies the mex files to the right directory for use in Matlab, it does not require priviledges to run.
 For furthere information please see [here](https://github.com/imphys/smlm_datafusion3d) for the instruction.
 
-4.  To use this package it is required to have Mex files (`mex_expdist`) ready on your device. These are automatically generated after compilation of the c files. Each package (2D,3D) requires its own MEX files to be used in Matlab. It is needed to include the <compiled libraries (`.so`) path> in `LD_LIBRARY_PATH`. Afterwards you should add the <location of compiled mex-files (`.mexa64`)> to Matlab path. This can be done using `addpath` command in Matlab. Please note, once you need to use other package (2D,3D) you need to reassign new Mex files to the linux path. For adding the mex files into linux path you should put your software directory to `<Joint-Registration-of-Multiple-Point-Clouds-for-Fast-Particle-Fusion-in-Localization-Microscopy>` in the codes below.
+4.  To use this package it is required to have Mex files (`mex_expdist`) ready on your device. These are automatically generated after compilation of the c files. Each package (2D,3D) requires its own MEX files to be used in Matlab. It is needed to include the <compiled libraries (`.so`) path> in `LD_LIBRARY_PATH`. Afterwards you should add the <location of compiled mex-files (`.mexa64`)> to Matlab path. This can be done using `addpath` command in Matlab. Please note, once you need to use other package (2D,3D) you need to reassign new Mex files to the linux path. For adding the mex files into linux path you should put your software directory to `<FPF>` in the codes below.
 
    ```bash
    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:<FPF>/2d
@@ -78,17 +78,17 @@ Examples of how to use the code on experimental data is shown in the MATLAB scri
 ### Compile the code
 In the following
 
-- <SOURCE_DIRECTORY> is the root directory of the sources
+- <FPF> is the root directory of the sources
 - <CUB_DIRECTORY> is the root directory of the downloaded [CUB library](https://nvlabs.github.io/cub/) sources
 
 
 Use the following commands to build the necessary libraries for this software:
 
 ```bash
-cd <SOURCE_DIRECTORY>/3d
+cd <FPF>/3d
 mkdir build
 cd build
-cmake -DCUB_ROOT_DIR=CUB_DIRECTORY <SOURCE_DIRECTORY>/3d
+cmake -DCUB_ROOT_DIR=CUB_DIRECTORY <FPF>/3d
 make
 ````
 ### Use the code
