@@ -16,7 +16,7 @@ The main code is written in MATLAB and some of the compute-intensive kernels hav
 Running the demo script in Matlab requires the installation of the following toolboxes in Matlab:
 * Image Processing Toolbox
 * Parallel Computing Toolbox
-*	Statistics and Machine Learning Toolbox
+* Statistics and Machine Learning Toolbox
 * Matlab Compiler
 
 
@@ -116,7 +116,7 @@ where $MATLAB is the location where matlab is installed.
 2. The LD_LIBRARY_PATH is only set inside the current terminal. There fore it is recommended to open matlab in the same terminal other wise .so files are not found.
 Another solution is to change the settings from my PC to not reset the LD_LIBRARY_PATH.
 
-
+3. Due to the inherent randomness of this algorithm, there's a small chance that it may generate incorrect results. As a remedial measure, you can execute this algorithm multiple times.
 
 ## Acknowledgements
 Thanks to Ronald Ligteringen for his help in testing and compiling the code.
