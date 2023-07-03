@@ -28,7 +28,7 @@ The recommended OS to run this package is Linux. For windows instalation please 
 
 1. Download the software or clone it using the code below: 
 
-``` git clone https://github.com/wexw/Joint-Registration-of-Multiple-Point-Clouds-for-Fast-Particle-Fusion-in-Localization-Microscopy.git ```
+``` git clone https://github.com/wexw/Joint-Registration-of-Multiple-Point-Clouds-for-Fast-Particle-Fusion-in-Localization-Microscopy.git FPF```
 
 2. Install the requirements. If you plan to use GPU, the correct version of the Cuda and CUB must be installed. 
 
@@ -36,7 +36,7 @@ The recommended OS to run this package is Linux. For windows instalation please 
 Use the following commands to build the necessary libraries for this software:
 
 ```bash
-cd Joint-Registration-of-Multiple-Point-Clouds-for-Fast-Particle-Fusion-in-Localization-Microscopy/2d
+cd FPF/2d
 
 cmake3 .
 make
@@ -61,7 +61,7 @@ For furthere information please see [here](https://github.com/imphys/smlm_datafu
 4.  To use this package it is required to have Mex files (`mex_expdist`) ready on your device. These are automatically generated after compilation of the c files. Each package (2D,3D) requires its own MEX files to be used in Matlab. It is needed to include the <compiled libraries (`.so`) path> in `LD_LIBRARY_PATH`. Afterwards you should add the <location of compiled mex-files (`.mexa64`)> to Matlab path. This can be done using `addpath` command in Matlab. Please note, once you need to use other package (2D,3D) you need to reassign new Mex files to the linux path. For adding the mex files into linux path you should put your software directory to `<Joint-Registration-of-Multiple-Point-Clouds-for-Fast-Particle-Fusion-in-Localization-Microscopy>` in the codes below.
 
    ```bash
-   export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:<Joint-Registration-of-Multiple-Point-Clouds-for-Fast-Particle-Fusion-in-Localization-Microscopy>/2d
+   export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:<FPF>/2d
    ```
 
 5. Start MATLAB and set `USE_GPU_GAUSSTRANSFORM=0' and `USE_GPU_EXPDIST=0' to determine if you want to use the CPU or set `USE_GPU_GAUSSTRANSFORM=1' and `USE_GPU_EXPDIST=1' to use the GPU.
@@ -94,11 +94,11 @@ make
 ### Use the code
 To use this package it is required to have Mex files (mex_expdist) ready on your device. Each package (2D,3D) reuires its own MEX files to be used in Matlab. On the command line it is needed to include the path where the compiled libraries (.so) are located in LD_LIBRARY_PATH and in Matlab the path where the compiled mex-files (.mexa64)  are located needed to be added with addpath. Please note, once you need to use other package (2D,3D) you need to reassign new Mex files to the linux path. For adding the mex files into linux path you should put your software directory to Joint-Registration-of-Multiple-Point-Clouds-for-Fast-Particle-Fusion-in-Localization-Microscopy> in the codes below.
 ```bash
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/Joint-Registration-of-Multiple-Point-Clouds-for-Fast-Particle-Fusion-in-Localization-Microscopy/2d
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/FPF/2d
 ````
 Next, we need to locate the built libraries for MATLAB:
 ```bash
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:Joint-Registration-of-Multiple-Point-Clouds-for-Fast-Particle-Fusion-in-Localization-Microscopy/3d/build/mex/
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:FPF/3d/build/mex/
 ``` 
 Then, run MATLAB and set `USE_GPU_GAUSSTRANSFORM=0' and `USE_GPU_EXPDIST=0' to determine if you want to use the CPU or set `USE_GPU_GAUSSTRANSFORM=1' and `USE_GPU_EXPDIST=1' to use the GPU. 
 
