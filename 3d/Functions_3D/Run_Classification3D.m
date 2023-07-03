@@ -4,13 +4,13 @@ tic
 clus_All=cell(Repeattimes,1);
 ClusterView1_All=cell(Repeattimes,1);
 clusfull_All=cell(Repeattimes,1);
-ClusterView=[];
+% ClusterView=[];
 for J_C1=1:Repeattimes%%%%%%%%%%%%%%
 
     % TV_p=TV_All{ J_C1,1};
     MatrixAfterAll2all_norm= cost_norm_All{ J_C1,1};
     %  [~, MatrixAfterAll2all_norm]=Cost_2D(TV_p,Particles1,CCD_pixelsize);
-    clusterfull=[];
+%     clusterfull=[];
     if cluster_mode==1
         [ clus,clusterfull]=H_Clustering(MatrixAfterAll2all_norm,nc,minClustSize);
     else

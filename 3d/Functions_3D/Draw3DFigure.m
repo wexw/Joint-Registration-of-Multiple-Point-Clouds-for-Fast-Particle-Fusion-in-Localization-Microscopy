@@ -9,8 +9,8 @@ idx = find(data2c(:,1) <  sizeview& ...
     data2c(:,3) <  sizeview & ...
     data2c(:,3) > -sizeview);
 data2c = data2c(idx,:);
-  set(0,'defaultfigurecolor','black') 
-  densityc=visualizeCloud3D2(data2c,10,0);
+set(0,'defaultfigurecolor','black')
+densityc=visualizeCloud3D2(data2c,10,USE_GPU_GAUSSTRANSFORM);
 figure()
 hold on
 scatter3(data2c(:,1),data2c(:,2), data2c(:,3),1,densityc,'.');
@@ -21,13 +21,13 @@ hold off
 %         v = VideoWriter(filename);
 %         open(v);
 %         for beta=0:180
-%        
+%
 %             renderprojection(data2c(:,1),data2c(:,2), data2c(:,3), 0,beta,[-100 100],[-120 120],1,1, 1,10);
-%     
+%
 %             drawnow;
-%             
+%
 %             frame = getframe(gcf);
 %             writeVideo(v,frame);
 %         end
-%         
+%
 %         close(v);

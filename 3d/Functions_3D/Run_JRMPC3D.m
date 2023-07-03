@@ -8,6 +8,7 @@ t_All=cell(Repeattimes,1);               %translation matrix
 TV_All=cell(Repeattimes,1);            %Transformed particles
 X_All=cell(Repeattimes,1);
 X_inAll=cell(Repeattimes,1);
+S_All=cell(Repeattimes,1);
 %------------------prepare output format for parallel for------------------%
 
 %The inputs of the JRMPC_3D are of the unit nm/CCD_pixelsize
@@ -15,11 +16,13 @@ X_inAll=cell(Repeattimes,1);
 % the maimum/minimum limit of the MATLAB
 %The outputs are of the unit of nm by multiply CCD_pixelsize
 for JK=1:Repeattimes
+    disp(['Start to run JRMPC with initialization ' num2str(JK)]);
     %estimate number of GMMcenters K for JRMPC
     %------------------Generate Xin1-----------------
     az1 = 2*pi*rand(1,K);
     el1 = 2*pi*rand(1,K);
     Xin1 = [cos(az1).*cos(el1); sin(el1); sin(az1).*cos(el1)];
+    disp(['...']);
     [R ,t,X,S,a] = jrmpc_Nooutliers(V1,Xin1,'maxNumIter',500, 'epsilon', 1e-5,'S',Sa);%'gamma',0.2);%'S',1000);   %JRMPC
 
     TV = cellfun(@(V,R,t) bsxfun(@plus,R*V,t),V1,R,t ,'uniformoutput',false); %Transformed V
