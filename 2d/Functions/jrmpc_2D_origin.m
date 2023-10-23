@@ -201,8 +201,8 @@ for iter = 1:maxNumIter
     % sqe (squared differences between TV & X)
     a = cellfun(@(TV) sqe(TV,X),TV,'uniformoutput',false);
     
-    % pk*S^-1.5*exp(-.5/S^2*||.||)
-    a = cellfun(@(a) bsxfun(@times,pk.*(Q'.^1.5),exp(bsxfun(@times,-.5*Q',a))),a,'uniformoutput',false);
+    % pk*S^-1*exp(-.5/S^2*||.||)
+    a = cellfun(@(a) bsxfun(@times,pk.*(Q'.^1),exp(bsxfun(@times,-.5*Q',a))),a,'uniformoutput',false);
     
     % normalize
     a = cellfun(@(a) bsxfun(@rdivide,a,sum(a,2)+beta),a,'uniformoutput',false);    
