@@ -202,8 +202,9 @@ for iter = 1:maxNumIter
     a = cellfun(@(TV) sqe(TV,X),TV,'uniformoutput',false);
     
     % pk*S^-1.5*exp(-.5/S^2*||.||)
-    a = cellfun(@(a) bsxfun(@times,pk.*(Q'.^1.5),exp(bsxfun(@times,-.5*Q',a))),a,'uniformoutput',false);
-    
+    %     a = cellfun(@(a) bsxfun(@times,pk.*(Q'.^1.5),exp(bsxfun(@times,-.5*Q',a))),a,'uniformoutput',false);
+    a = cellfun(@(a) bsxfun(@times,pk.*(Q'),exp(bsxfun(@times,-.5*Q',a))),a,'uniformoutput',false);
+    %
     % normalize
   %  a = cellfun(@(a) bsxfun(@rdivide,a,sum(a,2)+beta),a,'uniformoutput',false);    
      a = cellfun(@(a) bsxfun(@rdivide,a,sum(a,2)),a,'uniformoutput',false);    
